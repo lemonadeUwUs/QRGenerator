@@ -15,10 +15,18 @@ fn App<G: Html>(cx: Scope) -> View<G> {
         }
     };
 
-    let generate_qr = |to_embed: String| -> std::io::Result<()> {
-        let qr_code = QrSVG::new(to_embed);
-        qr_code.to_svg("qrcode.svg", 500)?;
-        Ok(())
+    let generate_qr = move |_| {
+        
+        if name.get().is_empty() {
+            let qr_code = QrSVG::new("https://www.google.com".to_string());
+            qr_code.to_svg("qrcode.svg", 500).unwrap();
+            
+        } else {
+            let qr_code = QrSVG::new(name.get().as_ref().clone());
+            qr_code.to_svg("qrcode.svg", 500).unwrap();
+            
+        }
+        
     };
 
     view! { cx,
@@ -28,11 +36,13 @@ fn App<G: Html>(cx: Scope) -> View<G> {
                 (displayed_name())
                 "!"
             }
-            // img {
-            //     (src="./qrcode.svg") 
-                
-            // }
+            div {
+                button(type="button", on:click = generate_qr){
+                    "Generate QR Code"
+                }
+                img(src="public/qrcode.svg", alt = "QR Code")
 
+            }
             input(placeholder="Enter text to encode", bind:value=name)
         }
     }

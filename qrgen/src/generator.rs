@@ -1,6 +1,4 @@
 use qrcodegen::{QrCode, QrCodeEcc};
-
-
 pub struct QrSVG {
     message: String,
 }

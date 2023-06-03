@@ -514,8 +514,8 @@ imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
 imports.wbg.__wbindgen_throw = function(arg0, arg1) {
     throw new Error(getStringFromWasm0(arg0, arg1));
 };
-imports.wbg.__wbindgen_closure_wrapper1455 = function(arg0, arg1, arg2) {
-    const ret = makeMutClosure(arg0, arg1, 120, __wbg_adapter_18);
+imports.wbg.__wbindgen_closure_wrapper1493 = function(arg0, arg1, arg2) {
+    const ret = makeMutClosure(arg0, arg1, 123, __wbg_adapter_18);
     return addHeapObject(ret);
 };
 
@@ -552,7 +552,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('qr-gen-app-f4fee2487cf64bcd_bg.wasm', import.meta.url);
+        input = new URL('qr-gen-app-e5c849d69c1d42e6_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
